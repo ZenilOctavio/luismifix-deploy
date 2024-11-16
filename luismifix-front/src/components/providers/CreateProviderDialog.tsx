@@ -66,7 +66,7 @@ export default function CreateProviderDialog({ open, onOpenChange }: CreateProvi
                                 <FormItem>
                                     <FormLabel>Nombre</FormLabel>
                                     <FormControl>
-                                        <Input placeholder="Escribe el nombre" {...field} maxLength={50} />
+                                        <Input placeholder="Escribe el nombre" {...field} maxLength={51} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>
@@ -108,7 +108,7 @@ export default function CreateProviderDialog({ open, onOpenChange }: CreateProvi
                                 <FormItem>
                                     <FormLabel>Nota</FormLabel>
                                     <FormControl>
-                                        <Textarea {...field} maxLength={255} />
+                                        <Textarea {...field} maxLength={256} />
                                     </FormControl>
                                     <FormMessage />
                                 </FormItem>

@@ -56,10 +56,11 @@ export default function ProvidersTable({ onEditProvider, onProviderRowSelection 
         return Number(rowA.original.statusProvider) - Number(rowB.original.statusProvider)
     }
 
+    const alwaysVisibleColumns = ['Id', 'Nombre', 'Editar']
 
     const columns: ColumnDef<Provider>[] = [
         {
-            id: 'id',
+            id: 'Id',
             accessorKey: '_id',
             header: 'ID',
             cell: (providerContext) => {
@@ -81,22 +82,22 @@ export default function ProvidersTable({ onEditProvider, onProviderRowSelection 
             }
         },
         {
-            id: 'name',
+            id: 'Nombre',
             accessorKey: 'nameProvider',
             header: 'Nombre',
         },
         {
-            id: 'typeProvider',
+            id: 'Tipo de proveedor',
             accessorFn: (provider) => provider.idTypeProvider.nameTypeProvider,
             header: 'Tipo de proveedor'
         },
         {
-            id: 'note',
+            id: 'Nota',
             accessorKey: 'noteProvider',
             header: 'Nota'
         },
         {
-            id: 'state',
+            id: 'Estado',
             accessorKey: 'statusProvider',
             sortingFn: sortingWithStatus,
             header: ({ column }) => {
@@ -113,7 +114,7 @@ export default function ProvidersTable({ onEditProvider, onProviderRowSelection 
             cell: ({ row }) => <div className="grid items-center">{row.original.statusProvider ? "Activo" : "Inactivo"}</div>
         },
         {
-            id: 'date',
+            id: 'Fecha',
             accessorFn: (provider) => {
                 const date = new Date(provider.creationDateProvider)
                 const formattedDate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
@@ -199,14 +200,17 @@ export default function ProvidersTable({ onEditProvider, onProviderRowSelection 
                             .filter((column) => column.getCanHide())
                             .filter((column) => column.id != 'edit')
                             .map((column, index, array) => {
-                                if (index == array.length - 1) return
+                                if (index == array.length - 1) return;
+                                if (alwaysVisibleColumns.includes(column.id)) return;
                                 return (
                                     <DropdownMenuCheckboxItem
                                         key={column.id}
                                         className="capitalize"
                                         checked={column.getIsVisible()}
-                                        onCheckedChange={(value) =>
+                                        onCheckedChange={(value) => {
+
                                             column.toggleVisibility(!!value)
+                                        }
                                         }
                                     >
                                         {column.id}

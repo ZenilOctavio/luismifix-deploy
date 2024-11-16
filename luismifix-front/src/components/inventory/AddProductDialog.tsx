@@ -93,7 +93,7 @@ export function AddProductDialog() {
                                     <FormItem >
                                         <FormLabel>Nombre</FormLabel>
                                         <FormControl>
-                                            <Input className="rounded" placeholder="Nombre del producto" maxLength={50} {...field} />
+                                            <Input className="rounded" placeholder="Nombre del producto" maxLength={51} {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -109,7 +109,7 @@ export function AddProductDialog() {
                                     <FormItem >
                                         <FormLabel>Descripción</FormLabel>
                                         <FormControl>
-                                            <Input className="rounded" placeholder="Añade una descripción" maxLength={500} {...field} />
+                                            <Input className="rounded" placeholder="Añade una descripción" maxLength={501} {...field} />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
@@ -117,7 +117,7 @@ export function AddProductDialog() {
                             }}
                         />
 
-                        <FormField
+                        {/* <FormField
                             name="link"
                             control={form.control}
                             render={({ field }) => {
@@ -131,7 +131,7 @@ export function AddProductDialog() {
                                     </FormItem>
                                 )
                             }}
-                        />
+                        /> */}
 
                         <FormField
                             name="units"
@@ -147,6 +147,7 @@ export function AddProductDialog() {
                                                 placeholder="Número de unidades en almacén"
                                                 {...field}
                                                 {...numbersMiddleware(1_000_000, false,)}
+                                                maxLength={7}
                                             />
                                         </FormControl>
                                         <FormMessage />
@@ -167,7 +168,10 @@ export function AddProductDialog() {
                                                 type="number"
                                                 placeholder="Número de unidades en almacén"
                                                 {...numbersMiddleware(1_000_000, false, true)}
-                                                {...field} />
+                                                {...field}
+                                                maxLength={7}
+                                                max={7}
+                                            />
                                         </FormControl>
                                         <FormMessage />
                                     </FormItem>
