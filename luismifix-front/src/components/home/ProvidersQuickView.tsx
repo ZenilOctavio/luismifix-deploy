@@ -19,8 +19,8 @@ export default function ProvidersQuickView({ className }: { className?: string }
         <>
             <Card className={className ? className : ''}>
                 <CardHeader>
-                    <CardTitle className="text-xl">Providers</CardTitle>
-                    <CardDescription>Providers registered in the platform</CardDescription>
+                    <CardTitle className="text-xl">Proveedores</CardTitle>
+                    <CardDescription>Proveedores registrados en la plataforma</CardDescription>
                 </CardHeader>
                 <CardContent className="">
                     <ul className="flex-col">
@@ -75,11 +75,11 @@ export default function ProvidersQuickView({ className }: { className?: string }
                                 )
                             })
                             :
-                            <li>No users</li>
+                            <li>No hay usuarios</li>
                         }
                     </ul>
                 </CardContent>
-                <CardFooter><span className="text-[0.8rem] text-slate-500">Go to Providers page for more information</span></CardFooter>
+                <CardFooter><span className="text-[0.8rem] text-slate-500">Navega a la pagina de proveedores para mas información</span></CardFooter>
             </Card>
         </>
     )
