@@ -15,9 +15,9 @@ import { contactEvaluatorResolver } from "@/lib/contactEvaluator";
 
 
 
-export default function CreateContactDialog({ provider }: { provider?: Provider | undefined }) {
+export default function CreateContactDialog({ provider, onCreateContact }: { provider: Provider, onCreateContact: () => void }) {
 
-    const { typeContacts, createProviderContact, refreshProvidersContacts } = useProviders()
+    const { typeContacts, createProviderContact } = useProviders()
 
     const CreateConctactFormSchema = z.object({
         idTypeContact: z.string(),
@@ -53,9 +53,9 @@ export default function CreateContactDialog({ provider }: { provider?: Provider 
                     title: 'Contacto creado con exito',
                     description: `${typeContact?.nameTypeContact} ${newProviderContact.data} creado para ${provider?.nameProvider}`
                 })
-                refreshProvidersContacts(provider)
 
                 form.reset()
+                onCreateContact()
             })
         }
     }
@@ -97,7 +97,7 @@ export default function CreateContactDialog({ provider }: { provider?: Provider 
                                                             typeContacts && typeContacts.length ?
                                                                 typeContacts.map(typeContact => {
                                                                     return (
-                                                                        <SelectItem key={typeContact._id} value={typeContact._id}>{typeContact.nameTypeContact}</SelectItem>
+                                                                        <SelectItem onClick={field.onChange} key={typeContact._id} value={typeContact._id}>{typeContact.nameTypeContact}</SelectItem>
                                                                     )
                                                                 })
                                                                 :

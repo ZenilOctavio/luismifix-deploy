@@ -130,7 +130,9 @@ function useProviders() {
         catch (err) {
             const axiosError = err as AxiosError
             const errorMessage = axiosError.response?.data as ErrorResponse
-            setError(errorMessage.message)
+
+            if (errorMessage && errorMessage.message)
+                setError(errorMessage.message)
 
             return
         }
