@@ -7,7 +7,7 @@ import {
     flexRender,
     getCoreRowModel,
     getFilteredRowModel,
-    getPaginationRowModel,
+    // getPaginationRowModel,
     getSortedRowModel,
     useReactTable,
     SortingFn
@@ -171,7 +171,7 @@ export default function ProvidersTable({ onEditProvider, onProviderRowSelection 
         onSortingChange: setSorting,
         onColumnFiltersChange: setColumnFilters,
         getCoreRowModel: getCoreRowModel(),
-        getPaginationRowModel: getPaginationRowModel(),
+        // getPaginationRowModel: getPaginationRowModel(),
         getSortedRowModel: getSortedRowModel(),
         getFilteredRowModel: getFilteredRowModel(),
         onColumnVisibilityChange: setColumnVisibility,
