@@ -382,10 +382,10 @@ export function ProductsTable({ onEditProduct, onEditLinks }: { onEditProduct?: 
             <div className="flex justify-end p-2">
                 {/* <span className="mr-auto text-sm">{table.getSelectedRowModel().rows.length} of {table.getRowCount()} row(s) selected</span> */}
                 <div className="flex items-center gap-4">
-                    <label className="text-sm font-semibold ">Rows per page</label>
+                    <label className="text-sm font-semibold ">Registros por página</label>
                     <Input type="number" className="w-20" value={table.getState().pagination.pageSize} onChange={(e) => { table.setPageSize(Number(e.target.value)) }} />
                 </div>
-                <span className="flex items-center text-sm font-semibold ml-3">Page {table.getState().pagination.pageIndex + 1} of {table.getPageCount()}</span>
+                <span className="flex items-center text-sm font-semibold ml-3">Página {table.getState().pagination.pageIndex + 1} de {table.getPageCount()}</span>
                 <div className="flex gap-3 ml-6">
                     <Button
                         className="bg-background text-slate-500 rounded p-0 w-10 h-10 shadow hover:bg-background"

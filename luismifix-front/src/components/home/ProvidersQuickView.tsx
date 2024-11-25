@@ -64,7 +64,7 @@ export default function ProvidersQuickView({ className }: { className?: string }
                                                                 </ul>
                                                             </>
                                                             :
-                                                            <div>No Contacts to show</div>
+                                                            <div>No hay contactos</div>
                                                     }
 
                                                 </div>
